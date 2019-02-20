@@ -26,8 +26,7 @@ namespace MonsterDataViewer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=SIGMA-WSV009;Initial Catalog=koushi;User ID=koushi_admin;Password=kou" +
-            "shi_admin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=MonsterInfo;User ID=sa;Password=test")]
         public string koushiConnectionString {
             get {
                 return ((string)(this["koushiConnectionString"]));
