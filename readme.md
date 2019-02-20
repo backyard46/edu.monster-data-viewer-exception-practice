@@ -5,12 +5,15 @@ ITSS準拠の研修カリキュラム「プログラミングの基礎(1)（B121
 # 課題
 
 ## 事前準備
+- 子フォームを作り、接続設定変更機能を実装してもらいます、。そのため、事前に [EDU. Transfer data between forms](https://gitlab.com/it_education/edu.-transfer-data-between-forms) のフォーム間情報連携に関するサンプルコードの解説を行い、フォーム同士での情報連携について理解させてください。
 - 研修環境からアクセス可能なSQL Serverに、「Database」ディレクトリにある下記のSQL 2件でテーブルとデータを作成してください。
   - TableCreate.sql …… Monstersテーブルを生成するCreate文です。
   - DataInsert.sql …… Monstersテーブルにポケモンデータを登録するInsert文です。
 - MonsterViewer.cs / SimpleSearchの「connectionString」変数に接続先サーバー情報が記述されているので、用意した環境のサーバー、DB名、ID、パスワードに書き換えてください。
 - 同じく、Properties / Settings.settings にある接続先情報も書き換えてください。
 - 課題用ソースを受講者に配布し、Visual Studioで開ける状態にしてください。
+
+
 
 ## 課題1: プログラムを動かす
 
@@ -23,3 +26,41 @@ MonsterViewer.csファイルの冒頭、「// データベース接続用情報�
 - データベースサーバー自体が稼働していることを確認する（サーバー自体にpingを打つ）。
 - SQL Server Management Studioからデータを確認し、SQL Server自体が動いていること、アカウント情報に誤りが無いことと、データが存在することを確認する。
 
+
+
+## 課題2: 接続先設定機能追加
+
+### 新人用課題文
+
+### 講師用補足
+
+
+
+## 課題3: データ取得時の例外処理追加
+
+### 新人用課題文
+
+### 講師用補足
+
+
+## 課題4: 設定情報の保存
+
+### 新人用課題文
+課題2の機能で入力された接続先情報を設定ファイルに保存し、次回から前回入力した情報が初期設定されるように改造します。下記の手順で処理を追加してみてください。
+
+1. Visual Studioで「ソリューションエクスプローラー」からプロジェクトを右クリック、「プロパティ」を選択します。
+1. 設定項目として「ServerName」「DatabaseName」「UserID」「Password」を文字列型で追加します。
+1. プログラムが終了される際に発生する「Closing」イベントに、下記のようにして設定情報を保存する処理を追記します（例はServerNameですが他の項目も同様に追記してください）。
+    ```cs
+    // サーバー名を設定ファイルに保存
+    Properties.Settings.Default["ServerName"] = serverName;
+    Properties.Settings.Default.Save();
+    ```
+1. プログラム起動時に発生する「Load」イベントに、下記のように設定情報をファイルから読み込む処理を追記します（例はServerNameですが他の項目も同様に追記してください）。
+    ```cs
+    // サーバー名を設定ファイルから読み込む
+    serverName = Properties.Settings.Default["ServerName"].ToString();
+    ```
+
+### 講師用補足
+設定情報の保存と読み込み処理です。ゲームなどでいういわゆる「セーブデータ」に相当する物が、.NET Frameworkの機能を使うと簡単に作れる事を学びます。
