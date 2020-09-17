@@ -119,12 +119,23 @@ namespace MonsterDataViewer
         private void ConnectionSettings_Load(object sender, EventArgs e)
         {
             // 選択肢等を初期設定
-            comboServer.Items.Add("SIGMA-WSV009");
-            comboServer.Items.Add("SN17002");
 
-            comboDatabase.Items.AddRange(new string[] { "iguchi", "kasai", "kikuchi", "watanuki" });
+            // for 2020
+            comboServer.Items.AddRange(new string[] { "localhost", "localhost\\SQLEXPRESS", "SIGMA-WSV009" });
+            comboDatabase.Items.AddRange(new string[] { "kadai010" });
+            comboID.Items.AddRange(new string[] { "hattori", "hirao", "hosaka", "murayama", "toyooka" });
 
-            comboID.Items.AddRange(new string[] { "iguchi_admin", "kasai_admin", "kikuchi_admin", "watanuki_admin" });
+            // for 2019
+            //comboServer.Items.Add("SIGMA-WSV009");
+            //comboServer.Items.Add("SN17002");
+            //comboDatabase.Items.AddRange(new string[] { "miura", "nishiyama", "tokiwa" });
+            //comboID.Items.AddRange(new string[] { "miura_admin", "nishiyama_admin", "tokiwa_admin" });
+
+            // for 2018
+            //comboServer.Items.Add("SIGMA-WSV009");
+            //comboServer.Items.Add("SN17002");
+            //comboDatabase.Items.AddRange(new string[] { "iguchi", "kasai", "kikuchi", "watanuki" });
+            //comboID.Items.AddRange(new string[] { "iguchi_admin", "kasai_admin", "kikuchi_admin", "watanuki_admin" });
 
             // コンストラクターで渡された情報を初期設定する
             comboServer.Text = _serverName;

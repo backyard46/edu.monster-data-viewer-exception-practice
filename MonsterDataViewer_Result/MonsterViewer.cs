@@ -76,6 +76,10 @@ namespace MonsterDataViewer
             }
             catch (SqlException ex)
             {
+                // 下記のやりかたは「日本語環境でのみ可能なやりかた」なのであまり模範回答とは言えません。
+                // 厳密に対応する場合、例外オブジェクトexの「Number」プロパティと、
+                // https://docs.microsoft.com/ja-jp/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15
+                // にあるエラーコードを見てエラーの仕分けを行ってください。
                 if (ex.InnerException == null)
                 {
                     // サーバー名に誤りがある場合（この場合、どうやらInnerExceptionがnullになる）
@@ -119,6 +123,8 @@ namespace MonsterDataViewer
             databaseName = child.DBName;
             userId = child.UserID;
             userPwd = child.Password;
+
+            child.Dispose();
         }
 
         /// <summary>
