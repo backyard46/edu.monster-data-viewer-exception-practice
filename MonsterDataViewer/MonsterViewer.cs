@@ -17,7 +17,7 @@ namespace MonsterDataViewer
     public partial class MonsterViewer : Form
     {
         // データベース接続用情報
-        private string serverName = "SIGMA-WSV009";
+        private string serverName = "WSV009";
         private string databaseName = "koushi";
         private string userId = "koushi_admin";
         private string userPwd = "koushi_admin";
