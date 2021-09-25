@@ -13,10 +13,10 @@ namespace MonsterDataViewer
     public partial class MonsterViewer : Form
     {
         // データベース接続用情報
-        private string serverName = "SIGMA-WSV009";
-        private string databaseName = "kasai";
-        private string userId = "kasai_admin";
-        private string userPwd = "kasai_admin";
+        private string serverName = "WSV009";
+        private string databaseName = "userA";
+        private string userId = "userA_admin";
+        private string userPwd = "userA_admin";
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MonsterViewer"/> class.
@@ -54,7 +54,7 @@ namespace MonsterDataViewer
         /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            // サーバー名： SIGMA-WSV009
+            // サーバー名： WSV009
             // データベース名： 各自の苗字ローマ字
             // ユーザーIDとパスワード： ローマ字苗字_admin
 
