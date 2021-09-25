@@ -50,7 +50,7 @@ namespace MonsterDataViewer
         /// <param name="e"></param>
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            // サーバー名： SIGMA-WSV009
+            // サーバー名： WSV009
             // データベース名： 各自の苗字ローマ字
             // ユーザーIDとパスワード： ローマ字苗字_admin
 
